@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  pg_data_production:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data_production:/var/lib/postgresql/data
+
+  backend:
+    build: ./bank/
+    env_file: .env
+    depends_on:
+      - db

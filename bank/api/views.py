@@ -1,10 +1,12 @@
-from wallets.models import Wallet
-from .serializers import WalletSerializer, OperationWalletSerializer
-from rest_framework import generics, status
-from rest_framework.response import Response
+import os
+
 from django.shortcuts import get_object_or_404
 from dotenv import load_dotenv
-import os
+from rest_framework import generics, status
+from rest_framework.response import Response
+from wallets.models import Wallet
+
+from .serializers import OperationWalletSerializer, WalletSerializer
 
 load_dotenv()
 
@@ -13,14 +15,14 @@ OPERATIONS_OF_WITHDRAW = os.getenv('OPERATIONS_OF_WITHDRAW', '').split(',')
 
 
 class WalletRetrieveView(generics.RetrieveAPIView):
-    '''Вью для кошелька.'''
+    """Вью для отображения баланса кошелька."""
 
     queryset = Wallet.objects.all()
     serializer_class = WalletSerializer
 
 
 class OperationView(generics.CreateAPIView):
-    '''Вью для пополнения и снятия.'''
+    """Вью для пополнения и снятия."""
 
     queryset = Wallet.objects.all()
     serializer_class = OperationWalletSerializer

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Wallet(models.Model):
     """Модель кошелька."""
 
@@ -10,4 +11,4 @@ class Wallet(models.Model):
         verbose_name_plural = 'Кошельки'
 
     def __str__(self):
-        return f'Баланс {self.id} - {self.balance}'
+        return f'Баланс кошелька №{self.id} - {self.balance}'

@@ -1,15 +1,14 @@
-from pathlib import Path
-from dotenv import load_dotenv
 import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 
 load_dotenv()
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = os.getenv("SECRET_KEY", '1234')
-
 DEBUG = bool(os.getenv('DEBUG', default='False') == "True")
-
 # IF TRUE - USES SQLITE3 FOR LOCAL TASTING, IF FALSE - USES POSTGRESQL
 LOCAL_DB = bool(os.getenv('LOCAL_DB', default='False') == "True")
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
