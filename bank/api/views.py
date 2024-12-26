@@ -13,6 +13,9 @@ load_dotenv()
 OPERATIONS_OF_DEPOSIT = os.getenv('OPERATIONS_OF_DEPOSIT', '').split(',')
 OPERATIONS_OF_WITHDRAW = os.getenv('OPERATIONS_OF_WITHDRAW', '').split(',')
 
+if Wallet.objects.exists(id=1) is False:
+    Wallet.objects.create(balance = 100)
+
 
 class WalletRetrieveView(generics.RetrieveAPIView):
     """Вью для отображения баланса кошелька."""

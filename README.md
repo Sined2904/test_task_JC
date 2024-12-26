@@ -4,14 +4,18 @@
 Тестовое задание для JavaCode. Приложение позволяет увидеть баланс конкретного кошелька, зачислить сумму или списать ее
 
 ### Технологии
-
+asgiref
+Django
+djangorestframework
+gunicorn
+packaging
+psycopg2-binary
+python-dotenv
+sqlparse
+typing_extensions
+tzdata
 
 ### Запуск проекта в dev-режиме
-- Установите и активируйте виртуальное окружение
-- Установите зависимости из файла requirements.txt
-```
-pip install -r requirements.txt
-``` 
 - Заполните файл .env
 - В корневой папке проекта выполните команду:
 ```
