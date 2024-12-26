@@ -23,16 +23,8 @@ class WalletSerializer(serializers.ModelSerializer):
 
 class OperationWalletSerializer(serializers.ModelSerializer):
     
-    operation = serializers.CharField(read_only=True)
+    operationType = serializers.CharField()
+    amount = serializers.FloatField()
     class Meta:
         model = Wallet
-        fields = ('amount', 'operation')
-
-    def validate_amount(self, amount):
-        if amount < 0:
-            raise serializers.ValidationError('Сумма не может быть'
-                                              ' меньше 0!')
-
-    def validate_amount(self, amount):
-        if self.operation not in ALLOWED_OPERATION:
-            raise serializers.ValidationError('Выбрана неизвестная операция')
+        fields = ('amount', 'operationType')
